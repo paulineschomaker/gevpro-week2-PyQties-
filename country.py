@@ -1,21 +1,19 @@
 #!/usr/bin/env python
-#Pauline Schomaker, s2731517
 import sys
 
 class Country():
 	
-	def __init__(self, name):
-		self.name = name
+	def __init__(self, country):
+		self.country = country
+	
+	def changeCountry(self, country):
+		self.country = country
 		
 	def __str__(self):
-		return "Hello from {0}".format(self.name)
-		print("hallo")
+		retString = "Hello from "
+		retString += self.country
+		return retString
 		
-def main(argv):
-	country = Country(argv[1])
-	print(country)
 if __name__ == '__main__':
-	main(sys.argv)
-	
-	
-	
+	country = Country("Netherlands")
+	print(country)
