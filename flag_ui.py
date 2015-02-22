@@ -11,26 +11,34 @@ import sys
 class CountryWindow(QDialog):
     def __init__(self):
         QWidget.__init__(self)
-        self.setWindowTitle('Window thing')
         self.countriesFile = "countries_list.txt"
         self.countriesList = countriesFileToStr(self.countriesFile)
  
         # UI #
-        self.countryPicker = QComboBox()
+        #Combobobox
+        self.countryPicker = QtGui.QComboBox(self)
         self.countryPicker.addItems(self.countriesList)
+        self.countryPicker.currentIndexChanged.connect(self.updateUI)
+        
+        #QFrame
+        self.countryFrame = QtGui.QFrame(self)
+        self.countryFrame.setGeometry(250,50,50,25)
+        self.countryFrame.move(10,50)
+        
+        #Color
+        self.Color = QtGui.QColor(200,5,20)
         
         # Grid #
-        grid = QGridLayout()
-        grid.addWidget(self.countryPicker, 0, 0)
-        self.setLayout(grid)
+        self.setGeometry(500, 200, 300, 300)
+        self.setWindowTitle('Raampje')
+        self.show()
         
-        # Change on updates #
-        #self.connect(self.fromCurrencyCombo, SIGNAL("currentIndexChanged(int)"), self.updateUI)
-        #self.connect(self.toCurrencyCombo, SIGNAL("currentIndexChanged(int)"), self.updateUI)
-        #self.connect(self.fromCurrencySpin, SIGNAL("valueChanged(double)"), self.updateUI)
-
+        #Update
+    def updateUI(self):
+        self.Color = FlagColor()
+        self.countryFrame.setStyleSheet("QFrame { background-color: %s }" % self.Color.name())
+        
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    converter = CountryWindow()
-    converter.show()
+    app = QtGui.QApplication(sys.argv)
+    ex = CountryWindow()
     app.exec()
