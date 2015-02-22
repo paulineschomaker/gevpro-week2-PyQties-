@@ -1,4 +1,4 @@
 # gevpro-week2-PyQties-
-#Johan Groenewold
+#Johan Groenewold, s2382482
 #Pauline Schomaker, s2731517
 #Team naam: PyQties
