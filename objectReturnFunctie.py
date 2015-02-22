@@ -22,5 +22,5 @@ def putYoCountriesInAList(countryFile):
     return countryList
 
 if __name__ == '__main__':
-    putYoCountriesInAList(countries_list.txt)
+    country = putYoCountriesInAList("countries_list.txt")
     print(country)
