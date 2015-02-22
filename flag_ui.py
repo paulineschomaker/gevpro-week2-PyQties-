@@ -17,7 +17,8 @@ class CountryWindow(QDialog):
         # UI #
         #Combobobox
         self.countryPicker = QtGui.QComboBox(self)
-        self.countryPicker.addItems(self.countriesList)
+        for item in self.countriesList:
+            self.countryPicker.addItem(item.country)
         self.countryPicker.currentIndexChanged.connect(self.updateUI)
         
         #QFrame
@@ -35,7 +36,6 @@ class CountryWindow(QDialog):
         
         #Update
     def updateUI(self):
-        self.Color = FlagColor()
         self.countryFrame.setStyleSheet("QFrame { background-color: %s }" % self.Color.name())
         
 if __name__ == '__main__':
