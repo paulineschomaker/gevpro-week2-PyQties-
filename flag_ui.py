@@ -13,11 +13,12 @@ class CountryWindow(QDialog):
         QWidget.__init__(self)
         self.setWindowTitle('Window thing')
         self.countriesFile = "countries_list.txt"
-        self.countriesList = countriesFileToStr(self.countriesFile)
+        self.countriesList = countriesFileToList(self.countriesFile)
  
         # UI #
         self.countryPicker = QComboBox()
-        self.countryPicker.addItems(self.countriesList)
+        for country in self.countriesList:
+            self.countryPicker.addItem(country.country)
         
         # Grid #
         grid = QGridLayout()

@@ -28,16 +28,6 @@ def countriesFileToList (countryFile):
     
     return countryList
 
-# Dit is de functie die lijsten van Country's maakt (countryList)
-def countriesFileToStr(countryFile):
-    infile = open(countryFile, "r")
-    countryStrList = []
-    
-    for line in infile:
-        countryStrList.append(line)
-    
-    return countryStrList
-
 def main():
     country = countriesFileToList("countries_list.txt")
     print(country)
