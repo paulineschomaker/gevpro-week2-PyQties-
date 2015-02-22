@@ -6,15 +6,14 @@ from PyQt4 import QtCore, QtGui
 
 # Dit is een Country-class, doet echt weinig stoers.
 class Country():
-    def __init__(self, country, countryFile):
+    def __init__(self, country):
         self.country = country
-        self.countryFile = countryFile
     
     def __str__(self):
         return self.country
         
 # Dit is de functie die lijsten van Country's maakt (countryList)
-    def putYoCountriesInAList(countryFile):
+    def countriesFile(countryFile):
         infile = open(countryFile, "r")
         countryList = []
 	    
@@ -28,7 +27,8 @@ class Country():
          color = flag_color()
       
 def main():
-    country = Country("Landje", "countries_list.txt") 
+    countriesFile("countries_list.txt")
+    country = Country("Landje") 
     print(country)
          
 if __name__ == '__main__':
