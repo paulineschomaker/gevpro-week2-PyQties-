@@ -12,7 +12,7 @@ class CountryWindow(QDialog):
     def __init__(self):
         QWidget.__init__(self)
         self.countriesFile = "countries_list.txt"
-        self.countriesList = countriesFileToStr(self.countriesFile)
+        self.countriesList = countriesFileToList(self.countriesFile)
  
         # UI #
         #Combobobox
