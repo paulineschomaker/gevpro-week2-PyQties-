@@ -1,5 +1,6 @@
 import sys
 from random import randrange
+from PyQt4 import QtCore, QtGui
 
 class FlagColor(QtGui.QColor):
     def __init__(self):
