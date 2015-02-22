@@ -8,8 +8,14 @@ from PyQt4 import QtCore, QtGui
 class Country():
     def __init__(self, country):
         self.country = country
-        self.color = self.flagColor()
+        self.flagColor()
     
+    def returnName(self):
+        return self.country
+    
+    def returnColor(self):
+        return self.color
+        
     # Dit is de functie die de kleur bepaalt    
     def flagColor(self):
          self.color = FlagColor()
@@ -23,7 +29,7 @@ def countriesFileToList (countryFile):
     countryList = []
     
     for line in infile:
-        newCountry = Country(line) #haha, Country(line)dancing.
+        newCountry = Country(line.strip()) #haha, Country(line)dancing.
         countryList.append(newCountry)
     
     return countryList
